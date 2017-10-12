@@ -1,0 +1,2 @@
+class NormalCar < Car
+end

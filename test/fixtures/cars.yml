@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  model: MyString
+  uniq_id: MyString
+  lat: 9.99
+  lng: 9.99
+  color: MyString
+  available: false
+
+two:
+  model: MyString
+  uniq_id: MyString
+  lat: 9.99
+  lng: 9.99
+  color: MyString
+  available: false

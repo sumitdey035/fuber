@@ -1,0 +1,2 @@
+class PinkCar < Car
+end
