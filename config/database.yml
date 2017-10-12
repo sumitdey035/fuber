@@ -1,0 +1,12 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  port: 5432
+  host: localhost
+  user: postgres
+  pool: 5
+
+development:
+  <<: *default
+  database: fuber_development
+  password: postgres
