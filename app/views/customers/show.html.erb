@@ -1,23 +1,25 @@
 <table class="table table-bordered">
   <thead>
-  <th>Car</th>
+  <th>Car ID</th>
   <th>Start Point</th>
   <th>End Point</th>
   <th>Started At</th>
+  <th>Ended At</th>
   <th>Duration</th>
   <th>Distance</th>
   <th>Price</th>
   </thead>
   <tbody>
-  <% @rides.desc.each do |ride| %>
+  <% @customer.rides.desc.each do |ride| %>
       <tr>
-        <td><%= ride.car.decorate.title %></td>
+        <td><%= ride.car.uniq_id %></td>
         <td><%= ride.start_point %></td>
         <td><%= ride.end_point %></td>
-        <td><%= ride.decorate.start_time %></td>
-        <td><%= ride.decorate.duration %></td>
-        <td><%= ride.decorate.distance %></td>
-        <td><%= ride.decorate.price %></td>
+        <td><%= ride.start_time %></td>
+        <td><%= ride.end_time %></td>
+        <td><%= 0 %></td>
+        <td><%= ride.distance %></td>
+        <td><%= ride.price %></td>
       </tr>
   <% end %>
   </tbody>

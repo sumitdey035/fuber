@@ -24,3 +24,9 @@ module Fuber
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
+# Load config
+CONFIG = YAML.load_file(Rails.root.join('config/config.yml.erb')).with_indifferent_access
+
+# require libraries
+Dir.glob(Rails.root.to_s + '/lib/*.rb').each { |lib| require lib }
+require "calculation"

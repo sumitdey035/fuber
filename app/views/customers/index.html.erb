@@ -1,0 +1,19 @@
+<table class="table table-bordered">
+  <thead>
+  <th>Name</th>
+  <th>Rides</th>
+  <th>Joined</th>
+  </thead>
+  <tbody>
+  <% @customers.each do |customer| %>
+      <tr>
+        <td>
+          <%= customer.decorate.status %>
+          <%= link_to customer.name, customer %>
+        </td>
+        <td><%= customer.rides.size %></td>
+        <td><%= customer.created_at %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+  <thead>
+    <th>Status</th>
+    <th>Car</th>
+    <th>Trips</th>
+    <th>Position(lat, lng)</th>
+  </thead>
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.decorate.status %></td>
+        <td><%= car.decorate.title %></td>
+        <td><%= car.rides.size %></td>
+        <td><%= "#{car.lat}, #{car.lng}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
