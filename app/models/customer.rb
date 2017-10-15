@@ -5,5 +5,5 @@ class Customer < ActiveRecord::Base
   scope :hipster,       -> { where(hipster: true) }
   scope :not_hipster,   -> { where(hipster: false) }
 
-  has_many :rides, dependent: :destroy
+  has_many :rides
 end

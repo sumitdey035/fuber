@@ -7,11 +7,11 @@ end
 end
 
 75.times do
-  NormalCar.create(model: Faker::Vehicle.manufacture, uniq_id: Faker::Vehicle.vin, lat: 1.32, lng: 103.22)
+  NormalCar.create(model: Faker::Vehicle.manufacture, uniq_id: Faker::Vehicle.vin, lat: rand(12.8607..13.1501).round(4), lng: rand(77.3973..77.5903).round(4))
 end
 
 25.times do
-  PinkCar.create(model: Faker::Vehicle.manufacture, uniq_id: Faker::Vehicle.vin, lat: 1.32, lng: 103.22)
+  PinkCar.create(model: Faker::Vehicle.manufacture, uniq_id: Faker::Vehicle.vin, lat: rand(12.8607..13.1501).round(4), lng: rand(77.3973..77.5903).round(4))
 end
 
 17.times do

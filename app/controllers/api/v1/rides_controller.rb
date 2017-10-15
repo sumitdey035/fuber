@@ -21,9 +21,10 @@ class Api::V1::RidesController < Api::V1::BaseController
   # request url
   #   POST base_url/api/v1/customers/1/ride/1?start_point=1.3,103.2
   def create
-    response = if nearest_car = Car.nearest
+    response = if nearest_car = Car.nearest(params[:start_point])
                  ride = @customer.rides.build(car_id: nearest_car.id, start_point: params[:start_point], start_time: Time.now.utc)
                  if ride.save
+                   nearest_car.start_ride
                    {status: 200, message: I18n.t('ride.start.successful'), data: ride}
                  else
                    {status: 700, message: I18n.t('error.validation'), data: ride.errors.full_messages}
@@ -51,15 +52,11 @@ class Api::V1::RidesController < Api::V1::BaseController
   # ==== Examples
   #
   # request url
-  #   DELETE base_url/api/v1/customers/1/ride/1?end_point=1.3,103.2
+  #   DELETE base_url/api/v1/customers/1/ride/1?end_point=1.4,103.9
   def destroy
     response= if @ride.ongoing?
-                if @ride.update(end_point: params[:end_point], end_time: Time.now.utc)
-                  {
-                    status: 200,
-                    message: I18n.t('ride.stop.successful'),
-                    data: @ride
-                  }
+                if @ride.update(end_point: params[:end_point], end_time: Time.now.utc) && @ride.car.stop_ride(params[:end_point])
+                  { status: 200, message: I18n.t('ride.stop.successful'), data: @ride }
                 end
               else
                 {status: 600, message: I18n.t('ride.stop.unsuccessful'), data: @ride}
@@ -75,9 +72,5 @@ class Api::V1::RidesController < Api::V1::BaseController
 
   def set_ride
     @ride = @customer.rides.find(params[:id])
-  end
-
-  def ride_params
-    params.require(:ride).permit(:start_point, :end_point)
   end
 end

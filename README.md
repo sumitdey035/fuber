@@ -1,6 +1,7 @@
 # FUBER
 
-FUBER taxi service.
+FUBER taxi service. 
+The database schema is given in the project root with name fiber.png and fiber.dia
 
 * Ruby and Rails version
     * Ruby version: 2.2.1

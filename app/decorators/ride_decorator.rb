@@ -8,7 +8,7 @@ class RideDecorator < Draper::Decorator
   end
 
   def duration
-    "#{object.duration} min"
+    object.duration > 59 ? "#{object.duration/60}h #{object.duration % 60}min" : "#{object.duration % 60}min"
   end
 
   def distance

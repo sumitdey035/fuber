@@ -10,3 +10,8 @@ development:
   <<: *default
   database: fuber_development
   password: postgres
+
+test:
+  <<: *default
+  database: fuber_test
+  password: postgres

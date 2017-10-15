@@ -24,7 +24,7 @@ class Ride < ActiveRecord::Base
   private
   def set_distance
     return unless end_point
-    self.distance = cauculate_distance
+    self.distance = cauculate_distance(start_point, end_point)
   end
 
   def set_price

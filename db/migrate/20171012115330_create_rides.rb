@@ -1,8 +1,8 @@
 class CreateRides < ActiveRecord::Migration
   def change
     create_table :rides do |t|
-      t.references  :customer,    null: false
-      t.references  :car,         null: false
+      t.references  :customer,    null: false, index: true
+      t.references  :car,         null: false, index: true
       t.string      :start_point, null: false
       t.timestamp   :start_time,  null: false
       t.string      :end_point

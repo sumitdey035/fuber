@@ -8,11 +8,20 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'draper'
+gem 'geocoder'
 
 group :development, :test do
   gem 'byebug'
   gem 'faker'
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.6'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'rspec-collection_matchers'
+  gem 'simplecov'
 end
 
 group :development do
