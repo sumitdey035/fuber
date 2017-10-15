@@ -1,5 +1,6 @@
 class Ride < ActiveRecord::Base
   include Calculation
+
   validates :car_id, :customer_id, :start_time, :start_point, presence: true
 
   belongs_to :car
@@ -9,17 +10,13 @@ class Ride < ActiveRecord::Base
 
   before_validation :set_distance, :set_price
 
-  # Duration in minute
+  # Duration of a ride in minute
   def duration
-    end_time ||= Time.now
+    end_time ||= Time.now.utc
     ((end_time - start_time)/60).round
   end
 
-  def distance_in_km
-    return unless distance
-    (distance/1000).round(2)
-  end
-
+  # Check whether the ride is over or ongoing
   def ongoing?
     end_point.blank?
   end

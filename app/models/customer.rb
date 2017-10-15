@@ -1,7 +1,9 @@
 class Customer < ActiveRecord::Base
+  validates :name, presence: true
+
+  scope :desc,          -> { order(id: :desc) }
   scope :hipster,       -> { where(hipster: true) }
   scope :not_hipster,   -> { where(hipster: false) }
-  scope :desc,          -> { order(id: :desc) }
 
   has_many :rides, dependent: :destroy
 end

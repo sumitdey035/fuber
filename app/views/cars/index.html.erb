@@ -1,3 +1,15 @@
+<h1>
+  Cars
+
+  <button class="btn btn-success pull-right" type="button">
+    Available <span class="badge"> <%= @cars.available.size %></span>
+  </button>
+
+  <button class="btn btn-danger pull-right" type="button">
+    ON Trip <span class="badge"> <%= @cars.not_available.size %></span>
+  </button>
+</h1>
+
 <table class="table table-bordered">
   <thead>
     <th>Status</th>

@@ -4,23 +4,11 @@
   <th>Start Point</th>
   <th>End Point</th>
   <th>Started At</th>
-  <th>Ended At</th>
   <th>Duration</th>
   <th>Distance</th>
   <th>Price</th>
   </thead>
   <tbody>
-  <% @customer.rides.desc.each do |ride| %>
-      <tr>
-        <td><%= ride.car.uniq_id %></td>
-        <td><%= ride.start_point %></td>
-        <td><%= ride.end_point %></td>
-        <td><%= ride.start_time %></td>
-        <td><%= ride.end_time %></td>
-        <td><%= 0 %></td>
-        <td><%= ride.distance %></td>
-        <td><%= ride.price %></td>
-      </tr>
-  <% end %>
+    <%= render @customer.rides.desc %>
   </tbody>
 </table>

@@ -3,10 +3,6 @@ class Api::V1::BaseController < ApplicationController
 
   protected
 
-  # def base(status, data = {})
-  #   ActiveSupport::JSON.encode({status: CONFIG[:application][:status][status.to_s], data: data})
-  # end
-
   def render_json_response(response, action_type)
     app_status = response[:status].to_i
     http_status = case action_type

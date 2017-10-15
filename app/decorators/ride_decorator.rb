@@ -1,6 +1,6 @@
 class RideDecorator < Draper::Decorator
   def start_time
-    object.start_time.strftime('%I:%M %p %A, %B %e')
+    object.start_time.strftime('%I:%M %p %A, %b %e')
   end
 
   def end_time
@@ -12,7 +12,7 @@ class RideDecorator < Draper::Decorator
   end
 
   def distance
-    "#{object.distance_in_km} km" if object.distance_in_km
+    "#{object.distance} km" if object.distance
   end
 
   def price

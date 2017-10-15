@@ -1,4 +1,6 @@
 en:
+  error:
+    validation: 'Validation error occurred'
   ride:
     start:
       successful: 'Ride has been started.'

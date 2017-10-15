@@ -21,10 +21,10 @@ end
   Ride.create!(
     customer_id:  customer.id,
     car_id:       car.id,
-    start_point:  "#{car.lat}, #{car.lng}",
-    end_point:    "#{car.lat}, #{car.lng}",
-    start_time:   Faker::Time.between(Date.today, Date.today, :evening),
-    end_time:     Faker::Time.between(Date.today, Date.today, :night)
+    start_point:  "#{rand(12.8607..13.1501).round(4)},#{rand(77.3973..77.5903).round(4)}",
+    end_point:    "#{rand(12.8607..13.1501).round(4)},#{rand(77.3973..77.5903).round(4)}",
+    start_time:   Faker::Time.between(Date.yesterday, Date.yesterday, [:afternoon, :morning].sample),
+    end_time:     Faker::Time.between(Date.yesterday, Date.yesterday, :night)
   )
 end
 
@@ -35,9 +35,9 @@ end
   Ride.create!(
     customer_id:  customer.id,
     car_id:       car.id,
-    start_point:  "#{car.lat}, #{car.lng}",
-    end_point:    "#{car.lat}, #{car.lng}",
-    start_time:   Faker::Time.between(Date.today, Date.today, :evening),
-    end_time:     Faker::Time.between(Date.today, Date.today, :night)
+    start_point:  "#{rand(12.860714..13.150126).round(4)},#{rand(77.397327..77.590329).round(4)}",
+    end_point:    "#{rand(12.860714..13.150126).round(4)},#{rand(77.397327..77.590329).round(4)}",
+    start_time:   Faker::Time.between(Date.yesterday, Date.yesterday, [:afternoon, :morning].sample),
+    end_time:     Faker::Time.between(Date.yesterday, Date.yesterday, :night)
   )
 end

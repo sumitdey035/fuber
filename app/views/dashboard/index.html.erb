@@ -1,24 +1,21 @@
+<h1>
+  Rides
+  <button class="btn btn-primary pull-right" type="button">
+    Total <span class="badge"> <%= @rides.size %></span>
+  </button>
+</h1>
+
 <table class="table table-bordered">
   <thead>
-  <th>Car</th>
-  <th>Start Point</th>
-  <th>End Point</th>
-  <th>Started At</th>
-  <th>Duration</th>
-  <th>Distance</th>
-  <th>Price</th>
+    <th>Car</th>
+    <th>Start Point</th>
+    <th>End Point</th>
+    <th>Started At</th>
+    <th>Duration</th>
+    <th>Distance</th>
+    <th>Price</th>
   </thead>
   <tbody>
-  <% @rides.desc.each do |ride| %>
-      <tr>
-        <td><%= ride.car.decorate.title %></td>
-        <td><%= ride.start_point %></td>
-        <td><%= ride.end_point %></td>
-        <td><%= ride.decorate.start_time %></td>
-        <td><%= ride.decorate.duration %></td>
-        <td><%= ride.decorate.distance %></td>
-        <td><%= ride.decorate.price %></td>
-      </tr>
-  <% end %>
+    <%= render @rides.desc.desc %>
   </tbody>
 </table>
